@@ -70,7 +70,7 @@
 			<div id="div_formParams" style="position:inherit; padding-top: 70px; display: inline-block;">
 				<div style="float: left; position: relative;">
 					<input type="checkbox" name="chk_defaultParams" id="chk_defaultParams" class="" checked/>
-					<span class="cl_lbl_checkboxes"> Varsayılan Parametreler</span><br />
+					<span class="cl_lbl_checkboxes"> Varsayilan Parametreler</span><br />
 					
 					<span class="cl_parameterLabels">Min Kombinasyon Adet</span>
 					<input type="text" id="num_minCombAmount" name="num_minCombAmount" value="" /><br>
