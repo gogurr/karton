@@ -162,3 +162,28 @@
 	background-color: #f0ad4e;
 	border-color: #eea236;
 }
+
+.cl_parameterLabels{
+	width: 200px;
+	display: inline-block;
+	font-family: 'Verdana'; 
+	font-size : small;
+	color: gray; 
+	font-weight: bold;
+}
+
+.cl_lbl_checkboxes{
+	font-family: 'Verdana'; 
+	font-size : small;
+	color: gray; 
+	font-weight:normal;
+	padding-bottom: 20px;
+	display: inline-block;
+}
+
+input[readonly]
+{
+    background-color: #F2F2F2 !important;
+    color: #818181;
+    border-color: #ddd;
+}
