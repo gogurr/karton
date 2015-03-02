@@ -31,7 +31,7 @@
 	var num_minAmountPreferred_init = <%= data.Constraints.MIN_ADET_TERCIH %>;
 	var num_minMeter_init = <%= data.Constraints.MIN_METRE %>;
 	var num_minKilo_init = <%= data.Constraints.MIN_KILO %>;
-	var num_minKiloPreferred_init = <%= data.Constraints.MIN_KILO %>;
+	var num_minKiloPreferred_init = <%= data.Constraints.MIN_KILO_TERCIH %>;
 	var num_kg_init = <%= data.Constraints.m2kg %>;
 	var numProperties = {};
 	
