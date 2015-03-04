@@ -22,8 +22,7 @@ public class DownloadServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {    	
     	String path = request.getParameter("filePath");
 		File file = new File(path);
-        System.out.println("System.out.println(file.getAbsolutePath()) : " + file.getAbsolutePath());
-
+       
     	response.setContentType("application/vnd.ms-excel");
         response.setHeader("Expires", "0");
         response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
