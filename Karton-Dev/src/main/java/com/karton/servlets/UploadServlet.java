@@ -118,7 +118,7 @@ public class UploadServlet extends HttpServlet {
             }
             
             
-            logString("Filename: " + fileName + ",{kiloModu:" + kiloModu + ",num_minCombAmount:"
+            logString("Filename:" + fileName + ",{kiloModu:" + kiloModu + ",num_minCombAmount:"
             		+ num_minCombAmount + ",num_minAmount:" + num_minAmount 
             		+ ",num_minAmountPreferred:" + num_minAmountPreferred + ",num_minMeter:" + num_minMeter 
             		+ ",num_minKilo:" + num_minKilo + ",num_minKiloPreferred:" + num_minKiloPreferred 
@@ -164,7 +164,7 @@ public class UploadServlet extends HttpServlet {
 			e.printStackTrace();
 		}
         
-        logString("IP : " + request.getRemoteAddr() + " - End of Process");
+        logString("IP:" + request.getRemoteAddr() + "-End of Process");
 	}
 
 	private String convertEmptyStringToZero(String str){
