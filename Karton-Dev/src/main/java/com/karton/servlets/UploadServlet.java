@@ -5,10 +5,11 @@ import heuristic.Optimizer;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,6 +54,8 @@ public class UploadServlet extends HttpServlet {
         String filePath = "inputs/";
 		String inputFilePath = filePath;
 		String fileName = null;
+		
+		logString("IP:" + request.getRemoteAddr() + "-Process Started");
 		
         // Parsing field values
         DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -113,7 +116,14 @@ public class UploadServlet extends HttpServlet {
                 	fileName = uploadFile(inputFilePath, fi);
                 }
             }
-		
+            
+            
+            logString("Filename: " + fileName + ",{kiloModu:" + kiloModu + ",num_minCombAmount:"
+            		+ num_minCombAmount + ",num_minAmount:" + num_minAmount 
+            		+ ",num_minAmountPreferred:" + num_minAmountPreferred + ",num_minMeter:" + num_minMeter 
+            		+ ",num_minKilo:" + num_minKilo + ",num_minKiloPreferred:" + num_minKiloPreferred 
+            		+ ",dbl_kg:" + dbl_kg + "}");
+            
 			request.removeAttribute("resultHtml");
 			response.setContentType("text/html");
 			PrintWriter out = response.getWriter();
@@ -138,6 +148,7 @@ public class UploadServlet extends HttpServlet {
 				htmlResult += "<div><a href=downloadServlet?filePath=" + output[2]
 						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[2]) + "</a></div></br>";
 				
+				logString("IP:" + request.getRemoteAddr() + "-Success! Duration:" + (stopTime - startTime) + "ms.");
 				request.setAttribute("resultHtml", htmlResult);
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
 				//response.sendRedirect(request.getHeader("Referer"));
@@ -152,6 +163,8 @@ public class UploadServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        
+        logString("IP : " + request.getRemoteAddr() + " - End of Process");
 	}
 
 	private String convertEmptyStringToZero(String str){
@@ -213,7 +226,6 @@ public class UploadServlet extends HttpServlet {
 						}
 						file.getParentFile().mkdirs();
 						fi.write(file);
-						System.out.println("file.getAbsolutePath() : " + file.getAbsolutePath());
 						return fileName;
 					}
 				}
@@ -239,10 +251,16 @@ public class UploadServlet extends HttpServlet {
 			}
 			file.getParentFile().mkdirs();
 			fi.write(file);
-			System.out.println("file.getAbsolutePath() : " + file.getAbsolutePath());
 			return fileName;
 		}			
 		return null;
 	}
 
+	private void logString (String message){
+		Calendar cal = Calendar.getInstance();
+	   	cal.getTime();
+    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    	System.out.print(sdf.format(cal.getTime()) + "---");
+		System.out.println(message);
+	}
 }
