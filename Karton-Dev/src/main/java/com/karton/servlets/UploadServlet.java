@@ -258,8 +258,7 @@ public class UploadServlet extends HttpServlet {
 
 	private void logString (String message){
 		Calendar cal = Calendar.getInstance();
-	   	cal.getTime();
-    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    	SimpleDateFormat sdf = new SimpleDateFormat("(DD/MM/YYYY HH:mm:ss");
     	System.out.print(sdf.format(cal.getTime()) + "---");
 		System.out.println(message);
 	}
