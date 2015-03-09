@@ -243,6 +243,7 @@ public class UploadServlet extends HttpServlet {
 		String fileName = null;
 		File file;
 		fileName = fi.getName();
+		fileName = fileName.replaceAll(" ", "_"); //replace " " blank characters with "_" underscore 
 		if (!fi.isFormField()) {
 			if (fileName.lastIndexOf("\\") >= 0) {
 				file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
@@ -258,7 +259,7 @@ public class UploadServlet extends HttpServlet {
 
 	private void logString (String message){
 		Calendar cal = Calendar.getInstance();
-    	SimpleDateFormat sdf = new SimpleDateFormat("(DD/MM/YYYY HH:mm:ss");
+    	SimpleDateFormat sdf = new SimpleDateFormat("(dd/mm/YYYY HH:mm:ss");
     	System.out.print(sdf.format(cal.getTime()) + "---");
 		System.out.println(message);
 	}
