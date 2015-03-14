@@ -39,9 +39,10 @@
 	numProperties.max = 999999;
 	numProperties.width = '100px';
 	
-	$(function() {
+	$(function() { 
 		initialize();
 	});
+	
 </script>
 </head>
 <body>
