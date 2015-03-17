@@ -266,7 +266,7 @@ public class UploadServlet extends HttpServlet {
 //		System.out.println(message);
     	
     	java.util.Date date= new java.util.Date();
-    	System.out.println(new Timestamp(date.getTime()) + " --- ");
+    	System.out.println(new Timestamp(date.getTime()) + " --- " + message);
     
 	}
 }
