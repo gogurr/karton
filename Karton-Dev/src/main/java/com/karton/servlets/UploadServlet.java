@@ -5,6 +5,7 @@ import heuristic.Optimizer;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -243,7 +244,7 @@ public class UploadServlet extends HttpServlet {
 		String fileName = null;
 		File file;
 		fileName = fi.getName();
-		fileName = fileName.replaceAll(" ", "_"); //replace " " blank characters with "_" underscore 
+		fileName = fileName.replaceAll(" ", "_"); //replace " "  blank characters with "_" underscore 
 		if (!fi.isFormField()) {
 			if (fileName.lastIndexOf("\\") >= 0) {
 				file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
@@ -258,9 +259,14 @@ public class UploadServlet extends HttpServlet {
 	}
 
 	private void logString (String message){
-		Calendar cal = Calendar.getInstance();
-    	SimpleDateFormat sdf = new SimpleDateFormat("(dd/mm/YYYY HH:mm:ss");
-    	System.out.print(sdf.format(cal.getTime()) + "---");
-		System.out.println(message);
+//		Calendar cal = Calendar.getInstance();
+//    	SimpleDateFormat sdf = new SimpleDateFormat("(DD/MM/YYYY HH:mm:ss");
+    
+//    	System.out.print(sdf.format(cal.getTime()) + "---");
+//		System.out.println(message);
+    	
+    	java.util.Date date= new java.util.Date();
+    	System.out.println(new Timestamp(date.getTime()) + " --- ");
+    
 	}
 }
