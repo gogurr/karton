@@ -6,9 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -143,11 +141,11 @@ public class UploadServlet extends HttpServlet {
 				String htmlResult = "";
 				htmlResult += "<div>Hesaplama tamamlandi. Geçen süre: " + (stopTime - startTime) + " ms. </div></br>";
 				htmlResult += "<div><a href=downloadServlet?filePath=" + output[0]
-						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[0]) + "</a></div></br>";
-				htmlResult += "<div><a href=downloadServlet?filePath=" + output[1]
-						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[1]) + "</a></div></br>";
+						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[0]) + "</a></div></br>"; //plan
+				//htmlResult += "<div><a href=downloadServlet?filePath=" + output[1]
+				//		+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[1]) + "</a></div></br>"; //tedarik
 				htmlResult += "<div><a href=downloadServlet?filePath=" + output[2]
-						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[2]) + "</a></div></br>";
+						+ " type='vnd.ms-excel'>" + getFileNameFromPath(output[2]) + "</a></div></br>"; //detay
 				
 				logString("IP:" + request.getRemoteAddr() + "-Success! Duration:" + (stopTime - startTime) + "ms.");
 				request.setAttribute("resultHtml", htmlResult);
