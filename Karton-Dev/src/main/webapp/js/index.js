@@ -28,7 +28,7 @@ function initialize(){
 		 
 		 $("#num_minKilo").numberbox('readonly', isDefaultParamsChecked || !isKgModeChecked)
 		 $("#num_minKiloPreferred").numberbox('readonly', isDefaultParamsChecked || !isKgModeChecked)
-		 $("#num_kg").numberbox('readonly', isDefaultParamsChecked || !isKgModeChecked)
+		 $("#num_kg").numberbox('readonly', isDefaultParamsChecked)
 					 
 		 if(isDefaultParamsChecked = true){ 
 			 setDefaultParamVals();
